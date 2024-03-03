@@ -69,6 +69,22 @@ void Camera::handle_movements(GLFWwindow* window, glm::vec2 mouse_rest_position,
 		forward_vector = glm::normalize(rotation_quat * forward_vector);
 		position += -up_vector * (float)(movement_speed * frame_time_ms);
 	}
+	//Halil: unreal engine additional camera input
+	if (glfwGetKey(window, GLFW_KEY_Q) == 1) {
+		glm::vec3 forward_vector = glm::vec3(0.0f, 0.0f, -1.0f);
+		forward_vector = glm::normalize(rotation_quat * forward_vector);
+		position += -up_vector * (float)(movement_speed * frame_time_ms);
+	}
+	if (glfwGetKey(window, GLFW_KEY_E) == 1) {
+		glm::vec3 forward_vector = glm::vec3(0.0f, 0.0f, -1.0f);
+		forward_vector = glm::normalize(rotation_quat * forward_vector);
+		position -= -up_vector * (float)(movement_speed * frame_time_ms);
+	}
+	//Press escape to quit
+	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == 1) {
+		glfwSetWindowShouldClose(window, true);
+	}
+
 	if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == 1) {
 		glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 		glfwSetCursorPos(window, mouse_rest_position.x, mouse_rest_position.y);

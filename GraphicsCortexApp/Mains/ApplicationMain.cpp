@@ -2,6 +2,9 @@
 
 int main() {
 
+
+	
+	
 	Frame frame(1920, 1080, "GraphicsCortex", 0, 0, true, false, true);
 	Scene scene(frame);
 	scene.camera->screen_width = frame.window_width;
@@ -100,6 +103,9 @@ int main() {
 	scene.set_skybox(cube_map);
 
 	while (frame.is_running()) {
+
+
+
 
 		double frame_time = frame.handle_window();
 		PhysicsScene::get().simulate_step(frame_time / 1000.0f);
